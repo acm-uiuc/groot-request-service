@@ -19,7 +19,7 @@ db.create_all(app=app)
 
 @app.route('/request', methods=['GET'])
 def get_all_acm_requests():
-    acm_requests = [r.to_dict() for r in ACMRequest.query.all()]
+    acm_requests = [r.to_dict() for r in ACMRequest.query.filter_by(completed=False)]
     return jsonify(acm_requests)
 
 @app.route('/request/<id>', methods=['GET'])
