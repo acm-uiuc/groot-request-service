@@ -5,18 +5,12 @@ db = SQLAlchemy()
 class ACMRequest(db.Model):
     __tablename__ = "acm_requests"
     id = db.Column(db.Integer, primary_key=True)
-    body = db.Column(db.String(100))
+    body = db.Column(db.String(500))
     created_on = db.Column(db.DateTime, default=datetime.now, nullable=False)
     completed = db.Column(db.Boolean, default=False)
     
     def __init__(self, body):
         self.body = body
-
-    def set_completed(self):
-        self.completed = True
-
-    def is_completed(self):
-        return completed
     
     def to_dict(self):
         acm_request_dict = {
