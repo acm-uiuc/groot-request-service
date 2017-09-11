@@ -14,6 +14,9 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://{}:{}@{}/{}'.format(
     MYSQL['dbname']
 )
 
+PORT=5656
+
+
 db.init_app(app)
 db.create_all(app=app)
 
@@ -61,3 +64,5 @@ def update_acm_request(id):
     db.session.commit()
     return jsonify({'acm_request' : acm_request.to_dict()})
 
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=PORT)

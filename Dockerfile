@@ -12,6 +12,6 @@ RUN pip install -r requirements.txt
 # Bundle app source
 COPY . /usr/src/app
 
-EXPOSE 42069
+EXPOSE 5656
 
-CMD [ "python", "server.py" ]
+CMD [ "python", "app.py" ]
